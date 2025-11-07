@@ -9,21 +9,18 @@ program main
 
     !import lapack eigenvalue solver
     interface
-        subroutine dstev(JOBZ, N, D, E, Z, LDZ, WORK, INFO)
-            use constants, only: dp
-            implicit none
-            
-            ! --- Argument definitions ---
-            character(len=1), intent(in) :: JOBZ
-            integer, intent(in) :: N, LDZ
-            integer, intent(out) :: INFO
-            real(kind=dp), intent(inout) :: D(:)
-            real(kind=dp), intent(inout) :: E(:)
-            real(kind=dp), intent(out) :: Z(:,:)
-            real(kind=dp), intent(out) :: WORK(:)
-        end subroutine dstev
+    subroutine dstev(JOBZ, N, D, E, Z, LDZ, WORK, INFO)
+        use constants, only: dp
+        implicit none
+        character(len=1), intent(in) :: JOBZ
+        integer, intent(in) :: N, LDZ
+        integer, intent(out) :: INFO
+        real(kind=dp), intent(inout) :: D(*)
+        real(kind=dp), intent(inout) :: E(*)
+        real(kind=dp), intent(out) :: Z(LDZ, *)
+        real(kind=dp), intent(out) :: WORK(*)
+    end subroutine dstev
     end interface
-
     !Parameters
     !-----------------
 
@@ -32,8 +29,8 @@ program main
     integer, parameter :: file_wavefuncs = 11
 
     !number of N discrete points, increase for more precision
-    integer,         parameter :: N = 5000
-    real(kind = dp), parameter :: L = 100.0_dp !in [A]
+    integer,        parameter :: N = 1000
+    real(kind = dp),parameter :: L = 100.0_dp !in [A]
     
     !Variables
     !------------------
