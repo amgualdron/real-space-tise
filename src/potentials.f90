@@ -72,7 +72,7 @@ module potentials
     
         real(kind = dp), intent(in) :: x![A]
 
-        real(kind = dp), parameter :: hbar_omega = 10E-3_dp ![eV]
+        real(kind = dp), parameter :: hbar_omega = 1.0_dp ![eV]
 
         v = (1.0_dp/2.0_dp) * m_e *((hbar_omega/hbar)**2) * (x**2)
 

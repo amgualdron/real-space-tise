@@ -3,7 +3,8 @@ module constants
     private 
 
     !working precision
-    integer, parameter, public :: dp = SELECTED_REAL_KIND(15)
+    integer, parameter, public :: dp = selected_real_kind(15)
+    integer, parameter, public :: ik = selected_int_kind(18) !(64-bit)
 
     !pi
     real(kind = dp), parameter, public :: pi = 4.0_dp * atan(1.0_dp)
@@ -30,7 +31,7 @@ module constants
     !electron rest mass energy (eV)
     real(kind = dp), parameter, public :: m_e_c2 = 0.51099895069E6_dp
 
-    !electron mass(kg)
+    !electron mass
     real(kind = dp), parameter, public :: m_e = m_e_c2 / (c**2)
     
     !infinity (safe so that wont overflow variables)

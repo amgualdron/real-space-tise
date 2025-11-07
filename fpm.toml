@@ -5,8 +5,8 @@ maintainer = "andresmgualdron@gmail.com"
 
 [build]
 auto-executables = true
-auto-tests = true
-link = ["lapack"]
+auto-tests = false
+link = ["lapack", "blas"]
 
 [install]
 library = false

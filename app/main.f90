@@ -29,7 +29,7 @@ program main
     integer, parameter :: file_wavefuncs = 11
 
     !number of N discrete points, increase for more precision
-    integer,        parameter :: N = 1000
+    integer,        parameter :: N = 2000
     real(kind = dp),parameter :: L = 100.0_dp !in [A]
     
     !Variables
@@ -81,7 +81,7 @@ program main
     !write eigenvalues (energies) to file
     !---------------------------------------
     open(unit = file_energies, file = 'results/qho_energies.txt', status = 'replace')
-    write(file_energies, '(a)') "# qho eigenvalues for N = 5000 L = 100A hbarw = 10meV"
+    write(file_energies, '(a)') "# qho eigenvalues for N = 2000 L = 100A hbarw = 1eV"
     write(file_energies, '(a)') "# n, Energy(eV)"
     do i = 1,5
         write(file_energies, '(i3, 2x, f12.6)')i, D(i)
@@ -93,7 +93,7 @@ program main
     !Write eigenvectors to file
     !------------------------------------------
     open(unit = file_wavefuncs, file = 'results/qho_wavefunctions.txt', status = 'replace')
-    write(file_wavefuncs, '(a)') "# qho eigenfunctions for N = 5000 L = 100A hbarw = 10meV"
+    write(file_wavefuncs, '(a)') "# qho eigenfunctions for N = 2000 L = 100A hbarw = 1eV"
     write(file_wavefuncs, '(a)') "# x, psi_1, psi_2, psi_3, psi_4, psi_5"
     do i = 1,N
         write(file_wavefuncs, *) x(i), psi(i, 1), psi(i, 2), psi(i, 3), psi(i, 4), psi(i, 5)   
