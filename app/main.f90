@@ -42,8 +42,8 @@ program main
 
     !fill arrays
     !--------------------
-    x(i) = real(-L/2.0_dp,dp)!set x_0 = -L/2
-    do i = 0,N
+    x(1) = real(-L/2.0_dp,dp)!set x_0 = -L/2
+    do i = 2,N
         x(i) = x(1) + real(i-1,dp) * dx !fill x with N discrete points up to L/2
     end do
 
@@ -52,5 +52,6 @@ program main
 
     call dstev('V', N, D, K, psi, N, work, info)
 
+    deallocate(x, D, K, psi, work)
 
 end program main
