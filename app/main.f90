@@ -22,7 +22,7 @@ program main
     
     !Variables
     !------------------
-    real(kind = dp) :: dx, T, x_curr 
+    real(kind = dp) :: dx, T
     real(kind=dp), allocatable :: x(:) !discretized space x_i
     integer :: i
 
@@ -89,7 +89,7 @@ program main
 
     close(file_wavefuncs)
     !-----------------------------------------
-    
+
     deallocate(x, D, K, psi, work)
 
 end program main
