@@ -1,0 +1,12 @@
+name = "real-space-tise"
+version = "0.1.0"
+author = "Andres Gualdron"
+maintainer = "andresmgualdron@gmail.com"
+
+[build]
+auto-executables = true
+auto-tests = true
+link = ["lapack"]
+
+[install]
+library = false

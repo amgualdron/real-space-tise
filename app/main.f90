@@ -1,5 +1,5 @@
 program main 
-    use constants 
+    use constants
     use potentials
     implicit none 
 
