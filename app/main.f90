@@ -23,9 +23,8 @@ program main
     integer :: i
 
     !Lapack arrays (dstev)
-    real(kind = dp), allocatable :: D(:)    !main diagonal
+    real(kind = dp), allocatable :: D(:)    !main diagonal -> becomes eigenvalues after lapack
     real(kind = dp), allocatable :: K(:)    !super diagonal(and sub)
-    real(kind = dp), allocatable :: E(:)    !energy eigenvalues
     real(kind = dp), allocatable :: psi(:,:)!eigenvectors
 
     ! required by dstev
@@ -39,7 +38,7 @@ program main
 
     !Allocation
     !-------------------
-    allocate(x(N), D(N), K(N-1), E(N), psi(N,N), work(2*N - 2))
+    allocate(x(N), D(N), K(N-1), psi(N,N), work(2*N - 2))
 
     !fill arrays
     !--------------------
@@ -50,6 +49,8 @@ program main
 
     D = qho_potential(x) + 2.0_dp * T
     K = -T
+
+    call dstev('V', N, D, K, psi, N, work, info)
 
 
 end program main
